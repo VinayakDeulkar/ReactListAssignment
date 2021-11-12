@@ -1,0 +1,122 @@
+{
+  "product": [
+    {
+      "Pro_id": 1,
+      "pname": "Jacket",
+      "price": "40,000",
+      "quantity": 1,
+      "image": "collection1.jpg"
+    },
+    {
+      "Pro_id": 2,
+      "pname": "Shoes",
+      "price": "50,000",
+      "quantity": 1,
+      "image": "collection2.jpeg"
+    },
+    {
+      "Pro_id": 3,
+      "pname": "Bag",
+      "price": "60,000",
+      "quantity": 1,
+      "image": "collection3.jpg"
+    },
+    {
+      "Pro_id": 4,
+      "pname": "Gloves",
+      "price": "50,000",
+      "quantity": 1,
+      "image": "collection4.jpg"
+    },
+    {
+      "Pro_id": 5,
+      "pname": "Pants",
+      "price": "80,000",
+      "quantity": 1,
+      "image": "collection5.png"
+    },
+    {
+      "Pro_id": 6,
+      "pname": "Hat",
+      "price": "50,000",
+      "quantity": 1,
+      "image": "collection6.jpg"
+    },
+    {
+      "Pro_id": 7,
+      "pname": "Shoes",
+      "price": "40,000",
+      "quantity": 1,
+      "image": "collection7.jpg"
+    },
+    {
+      "Pro_id": 8,
+      "pname": "Bag",
+      "price": "40,000",
+      "quantity": 1,
+      "image": "collection8.jpg"
+    },
+    {
+      "Pro_id": 9,
+      "pname": "Snow Glasses",
+      "price": "40,000",
+      "quantity": 1,
+      "image": "collection9.jpg"
+    },
+    {
+      "Pro_id": 10,
+      "pname": "Rain jacket",
+      "price": "40,000",
+      "quantity": 1,
+      "image": "collection10.jpg"
+    }
+  ],
+  "courses": [
+    {
+      "courses_id": 1,
+      "courses_name": "React Js",
+      "image": "ReactLogo.png",
+      "price": "3000$",
+      "Description": "React is a free and open-source front-end JavaScript library for building user interfaces or UI components. "
+    },
+    {
+      "courses_id": 2,
+      "courses_name": "Angular Js",
+      "image": "Angular_full_color_logo.svg.png",
+      "price": "3000$",
+      "Description": "AngularJS is a JavaScript-based open-source front-end web framework for developing single-page applications."
+    },
+    {
+      "courses_id": 3,
+      "courses_name": "Node Js",
+      "image": "node-js-736399_960_720.png",
+      "price": "3000$",
+      "Description": "Node.js is an open-source, cross-platform, back-end the V8 engine and executes JavaScript code outside a web browser."
+    },
+    {
+      "courses_id": 4,
+      "courses_name": "Vue Js",
+      "image": "vue.png",
+      "price": "3000$",
+      "Description": "Vue.js is an open-source model–view–viewmodel front end JavaScript framework for user interfaces and single-page."
+    }
+  ],
+  "user": [
+    {
+      "id": 0.9281225260703312,
+      "Name": "qwqwqwqwqwqw",
+      "Email": "vinu@123",
+      "MobileNumber": "7276933910",
+      "CourseId": 1,
+      "CourseName": "React Js"
+    },
+    {
+      "id": 0.4394392065229711,
+      "Name": "Vinayak Deulkar",
+      "Email": "vinayak@gmail.com",
+      "MobileNumber": "9090909090",
+      "CourseId": 2,
+      "CourseName": "Angular Js"
+    }
+  ]
+}

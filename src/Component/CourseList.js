@@ -1,5 +1,5 @@
 import React, { useEffect,useState,useRef } from 'react'
-import { Card, Col, Container, Row,Button, Form, Toast } from 'react-bootstrap'
+import { Card, Col,  Row,Button, Form, Modal } from 'react-bootstrap'
 import axios from 'axios'
 const client=axios.create({
     baseURL:"http://localhost:3001/courses"
@@ -56,14 +56,13 @@ export default function CourseList() {
     }
 
     const submit=()=>{
-        console.log(SelectedCourse);
-        let SelectedCourseName;
-        course.courseData.forEach(element => {
-            if(element.courses_id==SelectedCourse){
-                SelectedCourseName=element.courses_name;
-            }
-        });
-        if(FullName.current.value!='' && Email.current.value!='' && MobileNumber.current.value!=''&& NameError==''&&EmailError==''&&MobileNumberError==''){
+        
+        client.get(`?courses_id=${SelectedCourse}`)
+        .then(res=>{
+            console.log(res.data[0].courses_name);
+            let SelectedCourseName=res.data[0].courses_name;
+            console.log(SelectedCourseName);
+            if(FullName.current.value!='' && Email.current.value!='' && MobileNumber.current.value!=''&& NameError==''&&EmailError==''&&MobileNumberError==''){
             const formData={id:Math.random(),Name:FullName.current.value,Email:Email.current.value,MobileNumber:MobileNumber.current.value,CourseId:SelectedCourse,CourseName:SelectedCourseName}
             console.log(formData);
             clientuser.post("/",formData)
@@ -72,11 +71,11 @@ export default function CourseList() {
         else{
             alert("Please Fill the form")
         }
+        })
     }
 
     return (
         <div>
-            <Container>
                 <Row>
                     <Col lg={12}>
                         <Row>
@@ -89,7 +88,8 @@ export default function CourseList() {
                                         <Card.Text>
                                             {Course.price}<br/>
                                             {Course.Description}<br/>
-                                            <Button variant="outline-primary" onClick={()=>Enquire(Course.courses_id)}>Enquire</Button>{' '}
+                                            <div className="d-grid gap-2">
+                                            <Button variant="primary" className="mt-2" size="lg" onClick={()=>Enquire(Course.courses_id)}>Enquire</Button>{' '}</div>
                                         </Card.Text>
                                     </Card.Body>
                                     </Card>
@@ -97,50 +97,41 @@ export default function CourseList() {
                             )}
                         </Row>
                         {form?
-                        <Col lg={12}>
-                            <Row>
-                                <Col lg={3} />
-                                <Col lg={6}>
-                                    <Card className="mt-5">
-                                        <Card.Body>
-                                            <Form>
-                                                
-                                                <Form.Group  className="mb-2" controlId="frombasicName">
-                                                    <Form.Label className="float-left">Full Name</Form.Label>
-                                                    <Form.Control type="text" name="Fullname" placeholder="Enter Full Name" onChange={handler} ref={FullName} />
-                                                </Form.Group>
-                                                {NameError?
-                                                <Toast>
-                                                    <Toast.Body className="red">{NameError}</Toast.Body>
-                                                </Toast>:''}
-                                                <Form.Group  className="mb-2" controlId="frombasicEMail">
-                                                    <Form.Label className="float-left"> Email</Form.Label>
-                                                    <Form.Control type="text" name="email" placeholder="Enter Email" onChange={handler} ref={Email} />
-                                                </Form.Group>
-                                                {EmailError?
-                                                <Toast>
-                                                    <Toast.Body className="red">{EmailError}</Toast.Body>
-                                                </Toast>:''}
-                                                <Form.Group  className="mb-2" controlId="frombasicMobileNumber">
-                                                    <Form.Label className="float-left ">Mobile Number</Form.Label>
-                                                    <Form.Control type="text" name="mobilenumber" placeholder="Enter Mobile Number" onChange={handler} ref={MobileNumber} />
-                                                </Form.Group>
-                                                {MobileNumberError?
-                                                <Toast>
-                                                    <Toast.Body className="red">{MobileNumberError}</Toast.Body>
-                                                </Toast>:''}
-                                                <Button variant="outline-primary" onClick={submit}>Submit</Button>{' '}
-                                                
-                                            </Form>
-                                        </Card.Body>
-                                    </Card>
-                                    
-                                </Col>
-                            </Row>
-                        </Col>:''}
+                        <Modal
+                        show={form}
+                        onHide={() => setform(false)}
+                        size="lg"
+                        aria-labelledby="contained-modal-title-vcenter"
+                        centered
+                        >
+                        <Modal.Header closeButton/>
+                        <Modal.Title id="contained-modal-title-vcenter" className="text-center">
+                            Register
+                            </Modal.Title>
+                         <Modal.Body>
+                            <Form.Group  className="mb-2" controlId="frombasicName">
+                                    <Form.Label className="float-left">Full Name</Form.Label>
+                                    <Form.Control type="text" name="Fullname" placeholder="Enter Full Name" onChange={handler} ref={FullName} />
+                                </Form.Group>
+                                <span className="red">{NameError}</span>
+                                <Form.Group  className="mb-2" controlId="frombasicEMail">
+                                    <Form.Label className="float-left"> Email</Form.Label>
+                                    <Form.Control type="text" name="email" placeholder="Enter Email" onChange={handler} ref={Email} />
+                                </Form.Group>
+                                <span className="red">{EmailError}</span>
+                                <Form.Group  className="mb-2" controlId="frombasicMobileNumber">
+                                    <Form.Label className="float-left ">Mobile Number</Form.Label>
+                                    <Form.Control type="text" name="mobilenumber" placeholder="Enter Mobile Number" onChange={handler} ref={MobileNumber} />
+                                </Form.Group>
+                                <span className="red">{MobileNumberError}</span>
+                                </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button variant="primary" onClick={submit}>Submit</Button>{' '}
+                                    </Modal.Footer>
+                        </Modal>:''}
+                        
                     </Col>
                 </Row>
-            </Container>
         </div>
     )
 }

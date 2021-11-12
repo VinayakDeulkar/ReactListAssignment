@@ -30,9 +30,9 @@ export default function UserList() {
                                 </tr>
                             </thead>
                             <tbody>
-                        {UserData.Data.map((user)=>
+                        {UserData.Data.map((user,index)=>
                             <tr key={user.id}>
-                                <td>{user.id}</td>
+                                <td>{index+1}</td>
                                 <td>{user.Name}</td>
                                 <td>{user.Email}</td>
                                 <td>{user.MobileNumber}</td>

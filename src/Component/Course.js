@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Col, Row,Button } from 'react-bootstrap'
 import {BrowserRouter as Router,Route,Link,Switch } from 'react-router-dom'
 import CourseList from './CourseList'
 import UserList from './UserList'
@@ -9,8 +9,8 @@ export default function Course() {
             <Router>
                 <Row className="m-3">
                     <Col lg={2} >
-                        <li><Link to='/Course'><label className="producttext">Courses</label ></Link></li>
-                        <li><Link to='/UserList'><label  className="producttext">User List</label></Link></li> 
+                        <li className="m-2"><Link to='/Course'><Button variant="light"><label className="producttext">Courses</label ></Button></Link></li>
+                        <li className="m-2"><Link to='/UserList'><Button variant="light"><label  className="producttext">User List</label></Button></Link></li> 
                     </Col>
                     <Col lg={10}>
                         <Switch>

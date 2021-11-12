@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { Card, Col, Row,Button, Container } from 'react-bootstrap'
+import { Card, Col, Row, Container, Button } from 'react-bootstrap'
 import axios from 'axios'
 const client=axios.create({
     baseURL:"http://localhost:3001/product"
@@ -29,6 +29,7 @@ export default function ProductList() {
                                     <Card.Text>
                                     {product.price}
                                     </Card.Text>
+                                    <Button >Add To cart</Button>
                                 </Card.Body>
                                 </Card>
                             </Col>

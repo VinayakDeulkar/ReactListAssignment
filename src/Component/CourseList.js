@@ -19,6 +19,7 @@ export default function CourseList() {
     const [EmailError, setEmailError] = useState('')
     const [MobileNumberError, setMobileNumberError] = useState('')
     const [SelectedCourse, setSelectedCourse] = useState('')
+    const [zoomimage, setzoomimage] = useState('')
     const [form, setform] = useState(false)
     useEffect(() => {
         client.get()
@@ -73,23 +74,28 @@ export default function CourseList() {
         }
         })
     }
-
+    const images=(imageurl)=>{
+        setzoomimage(imageurl)
+    }
+    const normal=()=>{
+        setzoomimage('')
+    }
     return (
         <div>
                 <Row>
                     <Col lg={12}>
                         <Row>
                             {course.courseData.map((Course)=>
-                                <Col lg={3} key={Course.courses_id} className="mb-3 mt-3">
-                                    <Card style={{ width: '18rem' }} className="p-2">
-                                    <Card.Img variant="top" src={`images/${Course.image}`} height="200px"/>
+                                <Col lg={3} key={Course.courses_id} className="mb-3 mt-3 ">
+                                    <Card style={{ width: '18rem' }} onMouseOver={()=>images(Course.image)} onMouseOut={()=>normal()}  className="p-2 course-card"  >
+                                    <Card.Img variant="top" src={`images/${Course.image}`} height="200px" className={`  ${Course.image==zoomimage?'zoom':''}`}/>
                                     <Card.Body>
                                         <Card.Title>{Course.courses_name}</Card.Title>
                                         <Card.Text>
                                             {Course.price}<br/>
                                             {Course.Description}<br/>
                                             <div className="d-grid gap-2">
-                                            <Button variant="primary" className="mt-2" size="lg" onClick={()=>Enquire(Course.courses_id)}>Enquire</Button>{' '}</div>
+                                            <Button variant="outline-dark" className="mt-2" size="lg" onClick={()=>Enquire(Course.courses_id)}>Register</Button>{' '}</div>
                                         </Card.Text>
                                     </Card.Body>
                                     </Card>
@@ -108,7 +114,7 @@ export default function CourseList() {
                         <Modal.Title id="contained-modal-title-vcenter" className="text-center">
                             Register
                             </Modal.Title>
-                         <Modal.Body>
+                         <Modal.Body >
                             <Form.Group  className="mb-2" controlId="frombasicName">
                                     <Form.Label className="float-left">Full Name</Form.Label>
                                     <Form.Control type="text" name="Fullname" placeholder="Enter Full Name" onChange={handler} ref={FullName} />
@@ -126,7 +132,7 @@ export default function CourseList() {
                                 <span className="red">{MobileNumberError}</span>
                                 </Modal.Body>
                                     <Modal.Footer>
-                                        <Button variant="primary" onClick={submit}>Submit</Button>{' '}
+                                        <Button variant="outline-primary" onClick={submit}>Submit</Button>{' '}
                                     </Modal.Footer>
                         </Modal>:''}
                         

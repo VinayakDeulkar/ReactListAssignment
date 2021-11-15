@@ -53,3 +53,11 @@ li{
 .red{
   color: red;
 }
+.course-card{
+  overflow: hidden;
+}
+.zoom {
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+  transform: scaleX(1.1)
+}

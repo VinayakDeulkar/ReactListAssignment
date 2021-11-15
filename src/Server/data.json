@@ -125,6 +125,14 @@
       "MobileNumber": "7676767676",
       "CourseId": 2,
       "CourseName": "Angular Js"
+    },
+    {
+      "id": 0.9176593309410588,
+      "Name": "Vinu",
+      "Email": "vinu@123",
+      "MobileNumber": "9090909990",
+      "CourseId": 1,
+      "CourseName": "React Js"
     }
   ]
 }

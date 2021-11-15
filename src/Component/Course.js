@@ -10,9 +10,9 @@ export default function Course() {
                 <Row className="m-3">
                     <Col lg={2} className="sidebar" >
                         <li className="m-2"><Link to='/Course'><label className="producttext">Courses</label ></Link></li>
-                        <li className="m-2"><Link to='/UserList'><label  className="producttext">User List</label></Link></li> 
+                        <li className="m-2"><Link to='/UserList'><label className="producttext">User List</label></Link></li> 
                     </Col>
-                    <Col lg={10}>
+                    <Col lg={10} className="maindata">
                         <Switch>
                             <Route path='/Course' exact component={CourseList}/>
                             <Route path='/UserList' exact component={UserList}/>

@@ -41,7 +41,7 @@
   color:white;
 }
 .sidebar{
-  margin-bottom: -12%; /* any large number will do */
+  height: 680px;/* any large number will do */
   margin-top: -15px;
   margin-left: -15px;
   background-color: white;
@@ -57,6 +57,7 @@
   background-color:	#303030;
   color: white;
 }
+
 li{
   list-style: none;
 }

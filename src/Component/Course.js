@@ -8,9 +8,9 @@ export default function Course() {
         <div>
             <Router>
                 <Row className="m-3">
-                    <Col lg={2} >
-                        <li className="m-2"><Link to='/Course'><Button variant="light"><label className="producttext">Courses</label ></Button></Link></li>
-                        <li className="m-2"><Link to='/UserList'><Button variant="light"><label  className="producttext">User List</label></Button></Link></li> 
+                    <Col lg={2} className="sidebar" >
+                        <li className="m-2"><Link to='/Course'><label className="producttext">Courses</label ></Link></li>
+                        <li className="m-2"><Link to='/UserList'><label  className="producttext">User List</label></Link></li> 
                     </Col>
                     <Col lg={10}>
                         <Switch>

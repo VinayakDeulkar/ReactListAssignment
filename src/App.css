@@ -40,9 +40,22 @@
   text-decoration: none;
   color:white;
 }
+.sidebar{
+  margin-bottom: -12%; /* any large number will do */
+  margin-top: -15px;
+  margin-left: -15px;
+  background-color: white;
+}
 .producttext{
+  margin-top: 10px;
+  font-size: 20px;
   text-decoration: none;
   color: black;
+  width: 100%;
+}
+.producttext:hover{
+  background-color:	#303030;
+  color: white;
 }
 li{
   list-style: none;

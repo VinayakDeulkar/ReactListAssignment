@@ -108,31 +108,35 @@ export default function CourseList() {
                         onHide={() => setform(false)}
                         size="lg"
                         aria-labelledby="contained-modal-title-vcenter"
+                        className="modeltrans"
                         centered
                         >
-                        <Modal.Header closeButton/>
-                        <Modal.Title id="contained-modal-title-vcenter" className="text-center">
+                       
+                        <Modal.Header className="modalcolor  text-center text-white"  closeButton >
+                        <Modal.Title id="contained-modal-title-vcenter" style={{marginLeft:"44%"}}  className="text-center text-white " >
                             Register
-                            </Modal.Title>
-                         <Modal.Body >
+                        </Modal.Title>
+                        </Modal.Header>
+                        
+                         <Modal.Body  className="modalcolor">
                             <Form.Group  className="mb-2" controlId="frombasicName">
-                                    <Form.Label className="float-left">Full Name</Form.Label>
+                                    <Form.Label className="float-left text-white">Full Name</Form.Label>
                                     <Form.Control type="text" name="Fullname" placeholder="Enter Full Name" onChange={handler} ref={FullName} />
                                 </Form.Group>
                                 <span className="red">{NameError}</span>
                                 <Form.Group  className="mb-2" controlId="frombasicEMail">
-                                    <Form.Label className="float-left"> Email</Form.Label>
+                                    <Form.Label className="float-left text-white"> Email</Form.Label>
                                     <Form.Control type="text" name="email" placeholder="Enter Email" onChange={handler} ref={Email} />
                                 </Form.Group>
                                 <span className="red">{EmailError}</span>
                                 <Form.Group  className="mb-2" controlId="frombasicMobileNumber">
-                                    <Form.Label className="float-left ">Mobile Number</Form.Label>
+                                    <Form.Label className="float-left text-white ">Mobile Number</Form.Label>
                                     <Form.Control type="text" name="mobilenumber" placeholder="Enter Mobile Number" onChange={handler} ref={MobileNumber} />
                                 </Form.Group>
                                 <span className="red">{MobileNumberError}</span>
                                 </Modal.Body>
-                                    <Modal.Footer>
-                                        <Button variant="outline-primary" onClick={submit}>Submit</Button>{' '}
+                                    <Modal.Footer className="modalcolor" >
+                                        <Button variant="light" style={{marginRight:"45%"}}  onClick={submit}>Submit</Button>{' '}
                                     </Modal.Footer>
                         </Modal>:''}
                         

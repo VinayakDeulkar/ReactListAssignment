@@ -75,3 +75,11 @@ li{
   transition: 0.5s all ease-in-out;
   transform: scaleX(1.1)
 }
+.modalcolor{
+  background-color: black;
+  border: 1px solid white;
+}
+.modeltrans{
+  background-color: black;
+  opacity: 0.8;
+}
